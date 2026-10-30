@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#10152f" />
+  <title>QuickBite — Payment Recovery Control Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">Q<span>+</span></div>
+        <div><strong>quickbite</strong><small>PAYMENT OPS</small></div>
+      </div>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav">
+        <button class="nav-item active" data-page="overview"><span>◫</span> Overview</button>
+        <button class="nav-item" data-page="transactions"><span>↗</span> Transactions <b class="nav-count">24</b></button>
+        <button class="nav-item" data-page="recovery"><span>⟳</span> Recovery lab</button>
+        <button class="nav-item" data-page="routing"><span>⇄</span> Smart routing</button>
+        <button class="nav-item" data-page="reconciliation"><span>▤</span> Reconciliation</button>
+        <button class="nav-item" data-page="analytics"><span>▥</span> Analytics</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="health-card">
+          <div class="health-top"><span class="pulse"></span> SYSTEM HEALTH <strong>Good</strong></div>
+          <p>Primary gateway is responding normally.</p>
+          <div class="health-line"><i></i></div>
+          <small>Last checked just now</small>
+        </div>
+        <button class="nav-item" data-page="settings"><span>⚙</span> Settings</button>
+        <div class="profile">
+          <div class="avatar">AJ</div><div><strong>Admin Workspace</strong><small>QuickBite Operations</small></div><span class="dots">•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu">☰</button>
+        <div class="crumb">Payment Operations <span>/</span> <b id="pageCrumb">Overview</b></div>
+        <div class="top-actions">
+          <span class="live-pill"><i></i> LIVE DEMO</span>
+          <button class="icon-btn" title="Notifications">♧<em></em></button>
+          <div class="top-avatar">AJ</div>
+        </div>
+      </header>
+
+      <section class="page active" id="page-overview">
+        <div class="welcome-row">
+          <div><div class="eyebrow">FRIDAY, 30 OCTOBER 2026 <span class="spark">✦</span></div><h1>Payment command center<span>.</span></h1><p class="subhead">A clearer view of every payment, every failure, and every recovery opportunity.</p></div>
+          <button class="primary-btn" id="newPaymentBtn">＋ Simulate payment</button>
+        </div>
+        <div class="hero-banner">
+          <div class="hero-copy"><div class="hero-tag">QUICKBITE INTELLIGENCE <span>●</span></div><h2>Turn failed payments<br>into <i>successful orders.</i></h2><p>Replace blind retries with intelligent recovery, safer routing and verified payment status.</p><button class="hero-btn" data-goto="recovery">Explore recovery lab <span>→</span></button></div>
+          <div class="hero-art"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-plate">🍜</div><div class="float-card float-a"><span>✓</span><div><b>Payment secured</b><small>Order #QB-2048</small></div></div><div class="float-card float-b"><span>↗</span><div><b>+5.0% target</b><small>Card success uplift</small></div></div><div class="hero-spark">✦</div></div>
+        </div>
+        <div class="section-heading"><div><h3>Performance snapshot</h3><p>Case baseline from the capstone brief</p></div><span class="period-chip">LAST MONTH <span>⌄</span></span></div>
+        <div class="metric-grid">
+          <article class="metric-card"><div class="metric-head"><span class="metric-icon purple">↗</span><span class="trend positive">+2.4% <small>vs target</small></span></div><label>Card payment success</label><div class="metric-value">82<span>%</span></div><div class="progress"><i style="width:82%"></i></div><small class="metric-foot">Target: <b>87%</b> in 90 days</small></article>
+          <article class="metric-card"><div class="metric-head"><span class="metric-icon mint">◎</span><span class="trend positive">Healthy</span></div><label>UPI success rate</label><div class="metric-value">94<span>%</span></div><div class="progress mint-bar"><i style="width:94%"></i></div><small class="metric-foot">Maintain at or above 94%</small></article>
+          <article class="metric-card"><div class="metric-head"><span class="metric-icon orange">▣</span><span class="trend positive">Strong</span></div><label>Wallet success rate</label><div class="metric-value">96<span>%</span></div><div class="progress orange-bar"><i style="width:96%"></i></div><small class="metric-foot">Highest reported channel</small></article>
+          <article class="metric-card"><div class="metric-head"><span class="metric-icon pink">⚑</span><span class="trend negative">+40% <small>tickets</small></span></div><label>Debit-but-failed tickets</label><div class="metric-value">+40<span>%</span></div><div class="metric-note">Needs urgent reconciliation</div><small class="metric-foot">Goal: reduce by 50% from baseline</small></article>
+        </div>
+        <div class="content-grid">
+          <article class="panel chart-panel"><div class="panel-head"><div><h3>Payment method success</h3><p>Reported success rate by channel</p></div><span class="tiny-badge">CASE DATA</span></div><div class="bar-chart" id="methodChart"><div class="chart-y"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div><div class="chart-bars"><div class="bar-col"><div class="bar-value">96%</div><div class="bar" style="--bar:96%;--color:#7b61ff"></div><span>Wallets</span></div><div class="bar-col"><div class="bar-value">94%</div><div class="bar" style="--bar:94%;--color:#22c99a"></div><span>UPI</span></div><div class="bar-col"><div class="bar-value">82%</div><div class="bar" style="--bar:82%;--color:#ff9f43"></div><span>Cards</span></div><div class="bar-col"><div class="bar-value">78%</div><div class="bar" style="--bar:78%;--color:#ff6f91"></div><span>Net banking</span></div></div></div></article>
+          <article class="panel decline-panel"><div class="panel-head"><div><h3>Card decline mix</h3><p>Share of listed card declines</p></div><button class="text-btn" data-goto="analytics">View details →</button></div><div class="donut-wrap"><div class="donut"><div><b>100%</b><small>declines</small></div></div><div class="legend"><div><i style="background:#7b61ff"></i><span>Issuer unavailable</span><b>25%</b></div><div><i style="background:#ff9f43"></i><span>Insufficient funds</span><b>22%</b></div><div><i style="background:#22c99a"></i><span>Timeouts</span><b>20%</b></div><div><i style="background:#ff6f91"></i><span>Do not honour</span><b>18%</b></div><div><i style="background:#42b7e9"></i><span>CVV mismatch</span><b>10%</b></div><div><i style="background:#a8b0c7"></i><span>Expired card</span><b>5%</b></div></div></div></article>
+        </div>
+        <div class="section-heading recent-heading"><div><h3>Recent payment activity</h3><p>Demo transactions generated in this workspace</p></div><button class="text-btn" data-goto="transactions">View all transactions →</button></div>
+        <div class="panel table-panel"><div class="table-scroll"><table><thead><tr><th>PAYMENT ID</th><th>CUSTOMER</th><th>METHOD</th><th>AMOUNT</th><th>STATUS</th><th>TIME</th></tr></thead><tbody id="recentRows"></tbody></table></div></div>
+      </section>
+
+      <section class="page" id="page-transactions">
+        <div class="page-title-row"><div><div class="eyebrow">PAYMENT LEDGER</div><h1>Transactions<span>.</span></h1><p class="subhead">Track every attempt with a clear, auditable status.</p></div><button class="primary-btn" id="newPaymentBtn2">＋ New simulation</button></div>
+        <div class="filter-row"><div class="search-box">⌕ <input id="transactionSearch" placeholder="Search payment ID or customer..." /></div><select id="statusFilter"><option value="all">All statuses</option><option>Success</option><option>Failed</option><option>Pending</option><option>Reversed</option></select><select id="methodFilter"><option value="all">All methods</option><option>Card</option><option>UPI</option><option>Wallet</option><option>Net Banking</option></select></div>
+        <div class="panel table-panel"><div class="table-scroll"><table><thead><tr><th>PAYMENT ID</th><th>CUSTOMER</th><th>METHOD</th><th>AMOUNT</th><th>REASON</th><th>STATUS</th><th>TIME</th></tr></thead><tbody id="transactionRows"></tbody></table></div></div>
+      </section>
+
+      <section class="page" id="page-recovery">
+        <div class="page-title-row"><div><div class="eyebrow">INTELLIGENT DECISION ENGINE</div><h1>Recovery lab<span>.</span></h1><p class="subhead">Test the recommended decision for each payment failure before it reaches a customer.</p></div><span class="tiny-badge">RULE ENGINE · DEMO</span></div>
+        <div class="recovery-layout">
+          <div class="panel simulator-panel"><div class="panel-head"><div><h3>Payment failure simulator</h3><p>Choose a decline reason to see the recovery path.</p></div><span class="metric-icon purple">⟳</span></div>
+            <label class="field-label">DECLINE REASON</label><select id="declineCode" class="big-select"><option value="91">91 — Issuer unavailable</option><option value="TIMEOUT">Timeout — Unknown outcome</option><option value="51">51 — Insufficient funds</option><option value="05">05 — Do not honour</option><option value="N7">N7 — CVV mismatch</option><option value="54">54 — Expired card</option></select>
+            <label class="field-label">PAYMENT AMOUNT (₹)</label><input id="simAmount" class="big-input" type="number" min="1" value="1299" />
+            <label class="field-label">ORIGINAL PAYMENT STATUS</label><select id="originalStatus" class="big-select"><option value="unknown">Unknown / response timed out</option><option value="failed">Confirmed not completed</option><option value="success">Already successful</option></select>
+            <button class="primary-btn full-btn" id="runRecovery">Run recovery decision <span>→</span></button>
+            <div class="privacy-note">✦ Demo only. No real card details or payments are collected.</div>
+          </div>
+          <div class="panel decision-panel" id="decisionPanel"><div class="decision-empty"><div class="empty-orbit">✦</div><h3>Your decision appears here</h3><p>Select a decline reason and run the simulator to view the safe next action.</p></div></div>
+        </div>
+        <div class="section-heading"><div><h3>Recovery rulebook</h3><p>Recommended actions from the capstone solution</p></div></div>
+        <div class="rules-grid" id="rulesGrid"></div>
+      </section>
+
+      <section class="page" id="page-routing">
+        <div class="page-title-row"><div><div class="eyebrow">RESILIENCE & FAILOVER</div><h1>Smart routing<span>.</span></h1><p class="subhead">Use a secondary acquirer only when the failure is eligible and the first attempt is confirmed safe.</p></div><span class="live-pill"><i></i> ROUTING DEMO</span></div>
+        <div class="routing-banner"><div><span class="eyebrow">ROUTING STRATEGY</span><h2>One smart fallback.<br><i>Zero blind loops.</i></h2><p>Technical failures may qualify for a controlled alternate route. Hard declines never cascade.</p></div><div class="route-visual"><div class="route-node">QuickBite</div><div class="route-line"><span>PRIMARY</span></div><div class="route-node active-node">Acquirer A</div><div class="route-branch"><span>ELIGIBLE ONLY</span></div><div class="route-node secondary-node">Acquirer B</div></div></div>
+        <div class="content-grid route-cards"><article class="panel"><div class="panel-head"><h3>Primary acquirer</h3><span class="status-pill success">● Operational</span></div><div class="provider-name"><div class="provider-icon">A</div><div><b>Acquirer A</b><small>Primary route</small></div></div><div class="provider-stats"><div><small>Success rate</small><b>98.2%</b></div><div><small>Avg. response</small><b>1.2s</b></div><div><small>Health</small><b class="green-text">Good</b></div></div></article><article class="panel"><div class="panel-head"><h3>Secondary acquirer</h3><span class="status-pill warning">◷ Standby</span></div><div class="provider-name"><div class="provider-icon second">B</div><div><b>Acquirer B</b><small>Fallback route · simulated</small></div></div><div class="provider-stats"><div><small>Success rate</small><b>97.6%</b></div><div><small>Avg. response</small><b>1.5s</b></div><div><small>Health</small><b class="green-text">Ready</b></div></div></article></div>
+        <div class="panel routing-policy"><div class="panel-head"><div><h3>Routing eligibility</h3><p>Only one additional attempt is permitted.</p></div><span class="tiny-badge">MAX 1 FALLBACK</span></div><div class="eligibility-row"><div><span class="code-chip">91</span><div><b>Issuer unavailable</b><small>Technical condition</small></div></div><span class="status-pill success">Eligible after status check</span></div><div class="eligibility-row"><div><span class="code-chip">TIMEOUT</span><div><b>Timeout</b><small>Unknown outcome</small></div></div><span class="status-pill warning">Check original status first</span></div><div class="eligibility-row"><div><span class="code-chip">51 / 54 / N7</span><div><b>Funds, expired card or CVV</b><small>Customer/account data</small></div></div><span class="status-pill danger">Never route</span></div><div class="eligibility-row"><div><span class="code-chip">05</span><div><b>Do not honour</b><small>Unclear issuer decision</small></div></div><span class="status-pill danger">No retry loop</span></div></div>
+      </section>
+
+      <section class="page" id="page-reconciliation">
+        <div class="page-title-row"><div><div class="eyebrow">CUSTOMER TRUST & CONTROL</div><h1>Reconciliation<span>.</span></h1><p class="subhead">Match gateway payment states with order states to prevent debit-but-failed confusion.</p></div><button class="outline-btn" id="reconcileBtn">↻ Run reconciliation</button></div>
+        <div class="recon-summary"><div class="recon-card"><small>Awaiting verification</small><b id="pendingCount">03</b><span>Needs status enquiry</span></div><div class="recon-card"><small>Matched successfully</small><b id="matchedCount">128</b><span class="green-text">Payment + order aligned</span></div><div class="recon-card"><small>Cases auto-created</small><b id="caseCount">12</b><span>Support follow-up</span></div></div>
+        <div class="panel recon-panel"><div class="panel-head"><div><h3>Payment and order matching</h3><p>Sample exceptions requiring attention</p></div><span class="tiny-badge">SAMPLE DATA</span></div><div id="reconList"></div></div>
+        <div class="info-callout"><span>ⓘ</span><div><b>Important customer safeguard</b><p>Never ask a customer to pay again while the first transaction is pending or unverified. Check the original gateway reference first. If payment succeeded but the order cannot be fulfilled, start the appropriate reversal/refund workflow.</p></div></div>
+      </section>
+
+      <section class="page" id="page-analytics">
+        <div class="page-title-row"><div><div class="eyebrow">MEASURE WHAT MATTERS</div><h1>Analytics<span>.</span></h1><p class="subhead">Track progress against the proposed 90-day improvement goals.</p></div><span class="period-chip">90-DAY PLAN <span>⌄</span></span></div>
+        <div class="metric-grid analytics-metrics"><article class="metric-card"><div class="metric-head"><span class="metric-icon purple">↗</span><span class="trend positive">+5 pp goal</span></div><label>Card success target</label><div class="metric-value">87<span>%</span></div><small class="metric-foot">Baseline: 82%</small></article><article class="metric-card"><div class="metric-head"><span class="metric-icon mint">◎</span><span class="trend positive">Maintain</span></div><label>UPI success target</label><div class="metric-value">94<span>%</span></div><small class="metric-foot">Baseline: 94%</small></article><article class="metric-card"><div class="metric-head"><span class="metric-icon orange">▣</span><span class="trend positive">Maintain</span></div><label>Wallet success target</label><div class="metric-value">96<span>%</span></div><small class="metric-foot">Baseline: 96%</small></article><article class="metric-card"><div class="metric-head"><span class="metric-icon pink">⚑</span><span class="trend positive">−50% goal</span></div><label>Debit-but-failed tickets</label><div class="metric-value">50<span>%</span></div><small class="metric-foot">Reduction from baseline</small></article></div>
+        <div class="content-grid"><article class="panel"><div class="panel-head"><div><h3>Decline distribution</h3><p>Where card failures originate</p></div></div><div class="decline-bars" id="declineBars"></div></article><article class="panel"><div class="panel-head"><div><h3>90-day rollout plan</h3><p>Implementation milestones</p></div></div><div class="timeline"><div class="timeline-item"><i></i><div><b>Days 1–30 · Stabilise</b><p>Collect clean decline data, stop hard-decline retries and improve pending messages.</p></div></div><div class="timeline-item"><i></i><div><b>Days 31–60 · Protect</b><p>Add status enquiry, idempotency protection and automated support cases.</p></div></div><div class="timeline-item"><i></i><div><b>Days 61–90 · Optimise</b><p>Pilot secondary-acquirer routing for eligible technical failures.</p></div></div></div></article></div>
+        <div class="info-callout"><span>✦</span><div><b>Measurement note</b><p>These are proposed targets, not achieved company results. Establish a two-week baseline and monitor fraud, chargebacks and duplicate payments alongside approval rates.</p></div></div>
+      </section>
+
+      <section class="page" id="page-settings">
+        <div class="page-title-row"><div><div class="eyebrow">WORKSPACE CONFIGURATION</div><h1>Settings<span>.</span></h1><p class="subhead">Demo controls and project information.</p></div></div>
+        <div class="settings-grid"><article class="panel"><h3>QuickBite workspace</h3><p class="subhead">Payment recovery control center · Capstone prototype</p><div class="setting-row"><span>Environment</span><b>Simulation / no live payments</b></div><div class="setting-row"><span>Retry policy</span><b>Reason-code based</b></div><div class="setting-row"><span>Maximum fallback attempts</span><b>1 additional attempt</b></div><div class="setting-row"><span>Duplicate protection</span><b class="green-text">Idempotency enabled (demo)</b></div></article><article class="panel"><h3>Project credits</h3><div class="credit-box"><div class="brand-mark">Q<span>+</span></div><div><b>QuickBite Payment Recovery</b><p>Designed as an interactive implementation of the PPI-INT-1026 capstone solution.</p><small>Prepared by Aryan Kumar Jha</small></div></div><button class="outline-btn" id="resetDemo">↻ Reset demo data</button></article></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="paymentModal"><div class="modal"><button class="modal-close" id="closeModal">×</button><div class="eyebrow">INTERACTIVE DEMO</div><h2>Simulate a payment</h2><p>Generate a realistic sample transaction and see how the dashboard handles it.</p><label class="field-label">CUSTOMER NAME</label><input id="customerName" class="big-input" placeholder="e.g. Riya Sharma" value="Riya Sharma" /><label class="field-label">PAYMENT METHOD</label><select id="paymentMethod" class="big-select"><option>Card</option><option>UPI</option><option>Wallet</option><option>Net Banking</option></select><label class="field-label">AMOUNT (₹)</label><input id="paymentAmount" class="big-input" type="number" min="1" value="799" /><label class="field-label">SIMULATED RESULT</label><select id="paymentResult" class="big-select"><option value="success">Success</option><option value="91">Issuer unavailable (91)</option><option value="TIMEOUT">Timeout</option><option value="51">Insufficient funds (51)</option><option value="05">Do not honour (05)</option><option value="N7">CVV mismatch (N7)</option><option value="54">Expired card (54)</option></select><button class="primary-btn full-btn" id="createPayment">Create demo transaction →</button></div></div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
